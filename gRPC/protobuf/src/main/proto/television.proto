@@ -1,0 +1,49 @@
+syntax = "proto3";
+option java_package="com.demo.models";
+
+import "common/address.proto";
+import "common/car.proto";
+
+//v1
+//message television{
+//
+//  string brand=1;
+//  int32 year=2;
+//}
+
+//v2
+//message television{
+//  string brand=1;
+//  int32  model=2;
+//  Type type=3;
+//}
+
+
+enum  Type{
+  HD=0;
+  UHD=1;
+  OLED=2;
+}
+
+
+//v3
+//message television{
+//  string brand=1;
+//  Type type=3;
+//}
+
+//v4
+message television{
+  string brand=1;
+  reserved 2; //set this is reserved for year so new developer come dont make price as 2
+  reserved "year","model";
+  int32  price=4;
+  Type type=3;
+}
+
+
+message Void{
+
+}
+
+
